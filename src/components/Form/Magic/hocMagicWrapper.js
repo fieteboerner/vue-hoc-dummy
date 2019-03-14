@@ -4,6 +4,11 @@ export default function(name, inputComponent) {
     const renderOptions = {
         props: {
             value() {
+                if (this.$props.hasOwnProperty('value') && this.value !== undefined) {
+                    this.model[this.name] = this.value;
+                    return this.value;
+                }
+
                 return this.model[this.name];
             },
             label() {
@@ -27,8 +32,8 @@ export default function(name, inputComponent) {
             }
         },
         created() {
-            this.model = this.$parent.model;
-            this.labels = this.$parent.labels;
+            this.model = this.$parent.model || {};
+            this.labels = this.$parent.labels || {};
         },
         data() {
             return { model: {}, labels: {} };

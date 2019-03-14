@@ -1,6 +1,6 @@
 <template>
     <div class="form-element">
-        <label>{{ label }}</label>
+        <label :for="name">{{ label }}</label>
         <div class="form-element-body">
             <slot />
             <div class="description" v-if="description">{{ description }}</div>
@@ -12,6 +12,9 @@
 export default {
     name: 'LabelWrapper',
     props: {
+        name: {
+            type: String,
+        },
         label: {
             type: String,
             required: true,
@@ -38,6 +41,10 @@ export default {
         .description {
             font-size: small;
         }
+    }
+
+    & + & {
+        margin-top: 10px;
     }
 }
 </style>

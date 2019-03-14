@@ -22,7 +22,12 @@ const wrap = (name, inputComponent) => {
         },
         render(h) {
             return h(LabelWrapper, {props: this.labelProps}, [
-                h(inputComponent, {props: this.inputProps, on: this.$listeners})
+                h(inputComponent, {
+                    props: this.inputProps,
+                    on: this.$listeners,
+                    scopedSlots: this.$scopedSlots,
+                    slots: this.$slots,
+                })
             ]);
         },
     };
