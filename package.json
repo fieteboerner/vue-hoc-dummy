@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "styleguide": "vue-cli-service styleguidist",
+    "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
     "element-ui": "2.6.1",
@@ -24,6 +26,7 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-element": "^1.0.0",
+    "vue-cli-plugin-styleguidist": "^3.9.3",
     "vue-template-compiler": "2.6.9"
   },
   "eslintConfig": {
