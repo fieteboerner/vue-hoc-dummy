@@ -29,7 +29,6 @@
       <MagicTextInput name="four" value="4"/>
       <MagicSelect name="select" :items="items">
         <div slot="option" slot-scope="{ option }">*** {{ option.label }} ***</div>
-    </LabeledSelect>
       </MagicSelect>
     </MagicForm>
   </div>
