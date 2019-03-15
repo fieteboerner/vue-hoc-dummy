@@ -27,3 +27,11 @@ export default {
     },
 }
 </script>
+
+<docs>
+## Examples
+
+```jsx
+<BaseText value="test" />
+```
+</docs>
