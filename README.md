@@ -1,4 +1,4 @@
-# adzlocal
+# vue-hoc-dummy
 
 ## Project setup
 ```
