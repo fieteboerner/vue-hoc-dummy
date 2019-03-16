@@ -30,6 +30,27 @@
       <MagicSelect name="select" :items="items">
         <div slot="option" slot-scope="{ option }">*** {{ option.label }} ***</div>
       </MagicSelect>
+      <fieldset>
+        <legend>Nested</legend>
+        <MagicTextInput name="nested.name" />
+        <MagicTextInput name="nested.age" type="number" />
+        <MagicSelect name="nested.city" :items="items" />
+      </fieldset>
+      <fieldset>
+        <legend>SpecialItems - Manual - Not reactive</legend>
+        <MagicTextInput v-for="(inputItem, index) in specialItems"
+                        :key="inputItem.label"
+                        :name="`special.${index}.value`"
+                        :label="inputItem.label"
+                        :value="inputItem.value" />
+      </fieldset>
+      <fieldset>
+        <legend>SpecialItems - Automatic</legend>
+        <MagicTextInput v-for="(inputItem, index) in formModel.specialAutomaticItems"
+                        :key="inputItem.label"
+                        :name="`specialAutomaticItems.${index}.value`"
+                        :label="inputItem.label" />
+      </fieldset>
     </MagicForm>
   </div>
 </template>
@@ -42,6 +63,7 @@ import LabeledSelect from "@/components/Form/Label/Select";
 import MagicForm from "@/components/Form/Magic/Form";
 import MagicTextInput from "@/components/Form/Magic/TextInput";
 import MagicSelect from "@/components/Form/Magic/Select";
+import { setTimeout } from 'timers';
 
 export default {
   name: "Form",
@@ -64,6 +86,11 @@ export default {
         three: "Hey Nummer 3",
         four: "Hey Nummer 4",
         select: "Select",
+        nested: {
+          name: 'Name',
+          age: 'Alter',
+          city: 'Adresse',
+        },
       },
       formModel: {
         one: "one",
@@ -71,6 +98,15 @@ export default {
         three: 3,
         four: "four",
         select: 3,
+        nested: {
+          name: 'Name',
+          age: 10,
+          city: 2,
+        },
+        specialAutomaticItems: [
+          { label: 'Special 1', value: 1 },
+          { label: 'Special 2', value: 2 },
+        ],
       },
       items: [
           { label: 'Option 1', value: 1 },
@@ -80,7 +116,17 @@ export default {
           { label: 'Option 5', value: 5 },
           { label: 'Option 6', value: 6 },
       ],
+      specialItems: [
+        { label: 'Special 1', value: 1 },
+        { label: 'Special 2', value: 2 },
+        { label: 'Special 3', value: 3 },
+      ],
     };
-  }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.formModel.specialAutomaticItems.push( { label: 'special - mounted', value: 'mounted' });
+    }, 1000)
+  },
 };
 </script>
