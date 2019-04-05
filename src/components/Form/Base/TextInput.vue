@@ -4,8 +4,7 @@
         :value="value"
         :size="size"
         :id="name"
-        v-on="$listeners"
-        @input="(value) => $emit('input', value)" />
+        v-on="listeners" />
 </template>
 
 <script>
@@ -28,6 +27,14 @@ export default {
         size: {
             type: String,
         }
+    },
+    computed: {
+        listeners() {
+            return {
+                ...this.$listeners,
+                input: value => this.$emit('input', value),
+            };
+        },
     },
 }
 </script>
