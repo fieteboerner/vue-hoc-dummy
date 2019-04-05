@@ -1,21 +1,27 @@
 <template>
-   <el-select
+   <ElSelect
         :value="value"
         :id="name"
         class="select"
         @input="(value) => $emit('input', value)">
-        <el-option v-for="item in items"
+        <ElOption v-for="item in items"
                :key="item.value"
                :label="item.label"
                :value="item.value">
             <slot v-if="$scopedSlots.option" name="option" :option="item" />
-        </el-option>
-   </el-select>
+        </ElOption>
+   </ElSelect>
 </template>
 
 <script>
+import {
+    Option as ElOption,
+    Select as ElSelect,
+} from 'element-ui';
+
 export default {
     name: 'BaseSelect',
+    components: { ElOption, ElSelect },
     props: {
         name: {
             type: String,

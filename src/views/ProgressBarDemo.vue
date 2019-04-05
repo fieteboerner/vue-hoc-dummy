@@ -27,21 +27,23 @@
       </div>
     </StoreProgressBar>
 
-    <el-button @click="updateProgress(0)">0</el-button>
-    <el-button @click="updateProgress(10)">10</el-button>
-    <el-button @click="updateProgress(50)">50</el-button>
-    <el-button @click="updateProgress(75)">75</el-button>
-    <el-button @click="updateProgress(100)">100</el-button>
+    <ElButton @click="updateProgress(0)">0</ElButton>
+    <ElButton @click="updateProgress(10)">10</ElButton>
+    <ElButton @click="updateProgress(50)">50</ElButton>
+    <ElButton @click="updateProgress(75)">75</ElButton>
+    <ElButton @click="updateProgress(100)">100</ElButton>
   </div>
 </template>
 <script>
 import {mapMutations} from 'vuex';
+import { Button as ElButton } from "element-ui";
 import ProgressBar from "@/components/ProgressBar";
 import ElementProgressBar from "@/components/ElementProgressBar";
 import createStoreProgressBar from '@/components/StoreProgressBar';
 
 export default {
   components: {
+    ElButton,
     ElementProgressBar,
     ProgressBar,
     StoreProgressBar: createStoreProgressBar('scope1')

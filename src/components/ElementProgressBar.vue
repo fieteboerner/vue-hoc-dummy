@@ -4,14 +4,17 @@
       <slot name="label" :label="label">{{ label.percentage }} %</slot>
     </div>
     <div class="progress-content">
-      <el-progress :stroke-width="20" :percentage="percentage" :show-text="false"/>
+      <ElProgress :stroke-width="20" :percentage="percentage" :show-text="false"/>
     </div>
   </div>
 </template>
 
 <script>
+import { Progress as ElProgress } from "element-ui";
+
 export default {
   name: "ElementProgressBar",
+  components: { ElProgress },
   props: {
     target: {
       type: Number,

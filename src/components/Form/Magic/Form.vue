@@ -1,45 +1,46 @@
 <template>
-<div>
-    <el-form ref="form" :model="model" :rules="rules" label-width="150px">
-        <slot />
-        <LabelWrapper label="">
-			<el-button type="primary" @click="$emit('submit', model)">Send</el-button>
-		</LabelWrapper>
-    </el-form>
-</div>
+  <div>
+    <ElForm ref="form" :model="model" :rules="rules" label-width="150px">
+      <slot/>
+      <LabelWrapper label>
+        <ElButton type="primary" @click="$emit('submit', model)">Send</ElButton>
+      </LabelWrapper>
+    </ElForm>
+  </div>
 </template>
 
 <script>
-import LabelWrapper from '../Base/LabelWrapper';
+import { Form as ElForm, Button as ElButton } from "element-ui";
+import LabelWrapper from "../Base/LabelWrapper";
 
 export default {
-	name: 'MagicForm',
-	components: { LabelWrapper },
-    props: {
-        model: {
-            type: Object,
-            required: true,
-        },
-        labels: {
-            type: Object,
-            default: () => ({}),
-        },
-        rules: {
-            type: Object,
-            default: () => ({}),
-        },
-	},
-	data() {
-		return { fields: [], magicForm: true };
-	},
-	methods: {
-		registerField(field) {
-			this.fields.push(field);
-		},
-		unregisterField(field) {
-			this.fields = this.fields.filter(f => f !== field);
-		},
-	}
-}
+  name: "MagicForm",
+  components: { ElButton, ElForm, LabelWrapper },
+  props: {
+    model: {
+      type: Object,
+      required: true
+    },
+    labels: {
+      type: Object,
+      default: () => ({})
+    },
+    rules: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  data() {
+    return { fields: [], magicForm: true };
+  },
+  methods: {
+    registerField(field) {
+      this.fields.push(field);
+    },
+    unregisterField(field) {
+      this.fields = this.fields.filter(f => f !== field);
+    }
+  }
+};
 </script>
 
