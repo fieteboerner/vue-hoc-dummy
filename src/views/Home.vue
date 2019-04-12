@@ -2,7 +2,11 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <div class="swatches">
-      <ColorSwatch v-for="color in colors" :name="color.name" :color="color.color" />
+      <ColorSwatch v-for="(color, index) in colors"
+                   :key="index"
+                   :name="color.name"
+                   :color="color.color"
+                   />
     </div>
   </div>
 </template>
