@@ -2,8 +2,9 @@
   <div id="app">
     <nav class="navigation">
       <router-link class="navigation-item" active-class="is-active" exact to="/">Home</router-link>
+      <router-link class="navigation-item" active-class="is-active" exact to="/colors">Colors</router-link>
       <router-link class="navigation-item" active-class="is-active" exact to="/form">Form</router-link>
-      <router-link class="navigation-item" active-class="is-active" exact to="/progress-bar">ProgressBar</router-link>
+      <router-link class="navigation-item" active-class="is-active" exact to="/progress">Progress</router-link>
     </nav>
     <div class="content">
       <router-view></router-view>
@@ -19,12 +20,20 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+* {
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  /* margin-top: 60px; */
   padding-left: 250px;
 }
 

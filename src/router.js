@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Colors from './views/Colors.vue'
 import Form from './views/Form.vue'
-import ProgressBarDemo from './views/ProgressBarDemo.vue'
+import Progress from './views/Progress.vue'
 
 Vue.use(Router)
 
@@ -15,9 +16,14 @@ export default new Router({
       component: Home
     },
     {
-      path: '/progress-bar',
-      name: 'progress-bar',
-      component: ProgressBarDemo
+      path: '/colors',
+      name: 'colors',
+      component: Colors
+    },
+    {
+      path: '/progress',
+      name: 'progress',
+      component: Progress
     },
     {
       path: '/form',

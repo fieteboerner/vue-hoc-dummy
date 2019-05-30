@@ -1,0 +1,106 @@
+$color-disabled: lightgray;
+$color-highlight: lightsalmon;
+$color-text: lighten(black, 7);
+$step-margin: 0.5rem;
+$bullet-size: 0.75rem;
+$bullet-offset: 4px;
+$line-width: 4px;
+
+.vertical-steps {
+    display: flex;
+    flex-direction: column;
+
+    .step {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+
+        &:nth-child(n+2) {
+            margin-top: $step-margin;
+        }
+
+        .step-line,
+        .step-bullet,
+        .step-label {
+            transition: 0.7s ease;
+            transition-property: box-shadow, background-color, height, bottom;
+        }
+
+        .step-bullet {
+            position: relative;
+            display: inline-block;
+            height: $bullet-size;
+            width: $bullet-size;
+            border-radius: 50%;
+            background-color: $color-disabled;
+            margin-right: 1rem;
+            margin-top: $bullet-offset;
+            z-index: 2;
+        }
+
+        .step-line {
+            position: absolute;
+            background-color: lighten($color-highlight, 15);
+            width: $line-width;
+            top: calc(#{$bullet-size} + #{$bullet-offset} - 1px);
+            height: 0;
+            left: calc(#{$bullet-size / 2} - #{$line-width / 2});
+            z-index: 1;
+        }
+
+        .step-label {
+            color: $color-disabled;
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        &.is-done,
+        &.is-current {
+            .step-label {
+                color: $color-text;
+            }
+
+        }
+
+        &.is-done {
+            .step-line {
+                bottom: calc(-1 * (#{$bullet-offset} + #{$step-margin}));
+                height: auto;
+            }
+            .step-label {
+                cursor: pointer;
+            }
+
+            .step-bullet {
+                background-color: $color-highlight;
+            }
+
+            &:last-child {
+                .step-line {
+                    bottom: unset;
+                }
+            }
+        }
+
+        &.is-current {
+            &:first-child {
+                .step-line {
+                    bottom: unset;
+                }
+            }
+
+            .step-bullet {
+                background-color: transparent;
+                box-shadow:
+                    0 0 0 1px $color-highlight,
+                    0 0 0 1px $color-highlight inset,
+                    0 4px 6px -1px rgba(0, 0, 0, .1),
+                    0 2px 4px -1px rgba(0, 0, 0, .06);
+            }
+
+            .step-label {
+                font-weight: bold;
+            }
+        }
+    }
+}
