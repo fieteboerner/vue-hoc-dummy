@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import './assets/css/tailwind.css';
+
 export default {
   name: 'app',
 }
