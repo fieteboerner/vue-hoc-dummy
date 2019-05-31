@@ -3,7 +3,6 @@ $color-highlight: lightsalmon;
 $color-text: lighten(black, 7);
 $step-margin: 0.5rem;
 $bullet-size: 0.75rem;
-$bullet-offset: 4px;
 $line-width: 4px;
 
 .vertical-steps {
@@ -13,17 +12,15 @@ $line-width: 4px;
     .step {
         position: relative;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
 
         &:nth-child(n+2) {
             margin-top: $step-margin;
         }
 
-        .step-line,
         .step-bullet,
         .step-label {
-            transition: 0.7s ease;
-            transition-property: box-shadow, background-color, height, bottom;
+            transition: all 350ms ease;
         }
 
         .step-bullet {
@@ -34,7 +31,6 @@ $line-width: 4px;
             border-radius: 50%;
             background-color: $color-disabled;
             margin-right: 1rem;
-            margin-top: $bullet-offset;
             z-index: 2;
         }
 
@@ -42,8 +38,8 @@ $line-width: 4px;
             position: absolute;
             background-color: lighten($color-highlight, 15);
             width: $line-width;
-            top: calc(#{$bullet-size} + #{$bullet-offset} - 1px);
-            height: 0;
+            top: 0;
+            bottom: 100%;
             left: calc(#{$bullet-size / 2} - #{$line-width / 2});
             z-index: 1;
         }
@@ -56,16 +52,25 @@ $line-width: 4px;
 
         &.is-done,
         &.is-current {
+            .step-line {
+                bottom: calc(50% + #{$bullet-size / 2});
+                transition: bottom 250ms ease;
+            }
             .step-label {
                 color: $color-text;
+            }
+
+            &:first-child {
+                .step-line {
+                    top: calc(50% + #{$bullet-size / 2} - 2px);
+                }
             }
 
         }
 
         &.is-done {
             .step-line {
-                bottom: calc(-1 * (#{$bullet-offset} + #{$step-margin}));
-                height: auto;
+                bottom: -$step-margin;
             }
             .step-label {
                 cursor: pointer;
@@ -74,19 +79,12 @@ $line-width: 4px;
             .step-bullet {
                 background-color: $color-highlight;
             }
-
-            &:last-child {
-                .step-line {
-                    bottom: unset;
-                }
-            }
         }
 
         &.is-current {
-            &:first-child {
-                .step-line {
-                    bottom: unset;
-                }
+            .step-line {
+                // add a latency, so it looks line one animation of the line strike
+                transition: bottom 250ms ease 200ms;
             }
 
             .step-bullet {
