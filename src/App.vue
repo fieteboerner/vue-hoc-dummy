@@ -59,6 +59,7 @@ body {
     }
 
     &.is-active {
+      border-left: 4px solid lightslategray;
       background-color: rgba(0, 0, 0, 0.075);
     }
   }
