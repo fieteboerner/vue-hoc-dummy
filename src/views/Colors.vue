@@ -4,58 +4,38 @@
 
     <div class="swatches">
       <ColorSwatch v-for="(color, index) in colors"
-                    :key="index"
-                    :name="color.name"
-                    :color="color.color"
-                    />
+                   :key="index"
+                   :name="color.name"
+                   :color="color.color"
+                   />
     </div>
   </div>
 </template>
 
 <script>
 import ColorSwatch from '@/components/Cards/ColorSwatch.vue';
+import tailwindConfig from '../../tail.config';
 
 export default {
   name: 'Colors',
   components: { ColorSwatch },
   computed: {
     colors() {
-      return [
-        { name: '$color-red', color: 'rgb(235, 59, 36)'},
-        { name: '$color-yellow', color: 'rgb(255, 186, 10)'},
-        { name: '$color-blue', color: 'rgb(37, 138, 239)'},
-        { name: '$color-cloud', color: 'rgb(233, 243, 253)'},
-        { name: '$color-grey', color: 'rgb(127, 136, 145)'},
-        { name: '$color-white', color: 'rgb(255, 255, 255)'},
+      const allColors = [];
+      const colors = tailwindConfig.theme.colors;
 
-        { name: '$color-red', color: 'rgb(235, 59, 36)'},
-        { name: '$color-yellow', color: 'rgb(255, 186, 10)'},
-        { name: '$color-blue', color: 'rgb(37, 138, 239)'},
-        { name: '$color-cloud', color: 'rgb(233, 243, 253)'},
-        { name: '$color-grey', color: 'rgb(127, 136, 145)'},
-        { name: '$color-white', color: 'rgb(255, 255, 255)'},
+      Object.keys(colors).forEach(colorKey => {
+        const color = colors[colorKey];
+        if(color instanceof Object) {
+          Object.keys(color).forEach(subColorKey => {
+            allColors.push({ name: `${colorKey}-${subColorKey}`, color: color[subColorKey] });
+          });
+        } else {
+          allColors.push({ name: colorKey, color });
+        }
+      });
 
-        { name: '$color-red', color: 'rgb(235, 59, 36)'},
-        { name: '$color-yellow', color: 'rgb(255, 186, 10)'},
-        { name: '$color-blue', color: 'rgb(37, 138, 239)'},
-        { name: '$color-cloud', color: 'rgb(233, 243, 253)'},
-        { name: '$color-grey', color: 'rgb(127, 136, 145)'},
-        { name: '$color-white', color: 'rgb(255, 255, 255)'},
-
-        { name: '$color-red', color: 'rgb(235, 59, 36)'},
-        { name: '$color-yellow', color: 'rgb(255, 186, 10)'},
-        { name: '$color-blue', color: 'rgb(37, 138, 239)'},
-        { name: '$color-cloud', color: 'rgb(233, 243, 253)'},
-        { name: '$color-grey', color: 'rgb(127, 136, 145)'},
-        { name: '$color-white', color: 'rgb(255, 255, 255)'},
-
-        { name: '$color-red', color: 'rgb(235, 59, 36)'},
-        { name: '$color-yellow', color: 'rgb(255, 186, 10)'},
-        { name: '$color-blue', color: 'rgb(37, 138, 239)'},
-        { name: '$color-cloud', color: 'rgb(233, 243, 253)'},
-        { name: '$color-grey', color: 'rgb(127, 136, 145)'},
-        { name: '$color-white', color: 'rgb(255, 255, 255)'},
-      ];
+      return allColors;
     },
   },
 }
