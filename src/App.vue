@@ -5,6 +5,7 @@
       <router-link class="navigation-item" active-class="is-active" exact to="/colors">Colors</router-link>
       <router-link class="navigation-item" active-class="is-active" exact to="/form">Form</router-link>
       <router-link class="navigation-item" active-class="is-active" exact to="/progress">Progress</router-link>
+      <router-link class="navigation-item" active-class="is-active" exact to="/wizard">Wizard</router-link>
     </nav>
     <div class="content">
       <router-view></router-view>

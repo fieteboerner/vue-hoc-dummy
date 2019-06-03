@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Colors from './views/Colors.vue'
 import Form from './views/Form.vue'
 import Progress from './views/Progress.vue'
+import Wizard from './views/Wizard.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/form',
       name: 'form',
       component: Form
+    },
+    {
+      path: '/wizard',
+      name: 'wizard',
+      component: Wizard,
     },
   ]
 })
