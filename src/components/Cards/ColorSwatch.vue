@@ -34,13 +34,15 @@ export default {
     .color-swatch {
         padding: 1em;
         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        transition: all 0.4s cubic-bezier(.25,.8,.25,1);
+        transition: box-shadow 0.4s cubic-bezier(.25,.8,.25,1),
+                    transform 0.5s ease;
         overflow: hidden;
         font-size: 13px;
         border-radius: 3px;
 
         &:hover {
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            transform: translateY(-0.5em);
         }
 
         .color-swatch-preview {
