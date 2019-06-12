@@ -49,6 +49,9 @@ $color-navigation-nested-item: #2c3b41;
         flex-shrink: 0;
         margin-right: 1em;
       }
+      i {
+        transition: transform 200ms ease;
+      }
 
       span {
         flex-grow: 1;
@@ -70,11 +73,14 @@ $color-navigation-nested-item: #2c3b41;
     &.is-nested {
       background-color: $color-navigation-nested-item;
       .list {
-        display: none;
+        max-height: 0;
         padding-left: 1em;
+        transition: max-height 400ms ease-out;
+        overflow: hidden;
 
         &.is-open {
-            display: block;
+          max-height: 100vh;
+        transition: max-height 400ms ease-in;
         }
       }
 

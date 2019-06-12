@@ -15,7 +15,7 @@
     >
       <i class="icon fa" :class="`fa-${item.icon}`"/>
       <span>{{ item.label }}</span>
-      <i v-if="hasChildren" class="fa fa-angle-left" :class="{ 'fa-rotate-270': isOpen}"/>
+      <i v-if="hasChildren" class="fa fa-angle-down" :class="{ 'fa-rotate-90': !isOpen}"/>
     </RouterLink>
     <!-- External Link -->
     <a
