@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navigation">
-      <router-link class="navigation-item" active-class="is-active" exact to="/">Home</router-link>
-      <router-link class="navigation-item" active-class="is-active" exact to="/colors">Colors</router-link>
-      <router-link class="navigation-item" active-class="is-active" exact to="/form">Form</router-link>
-      <router-link class="navigation-item" active-class="is-active" exact to="/progress">Progress</router-link>
-      <router-link class="navigation-item" active-class="is-active" exact to="/wizard">Wizard</router-link>
-    </nav>
+    <NavigationTree :items="navigation" class="navigation" />
     <div class="content">
       <router-view></router-view>
     </div>
@@ -16,9 +10,24 @@
 
 <script>
 import './assets/css/tailwind.css';
+import NavigationTree from '@/components/Navigation/NavigationTree.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
+  components: { NavigationTree },
+  data() {
+    return {
+      navigation: [
+        { label: 'Home', icon: 'home', exact: true, route: '/' },
+        { label: 'Colors', icon: 'palette', route: '/colors' },
+        { label: 'Form', icon: 'envelope', route: '/form' },
+        { label: 'Navigation', icon: 'sitemap', route: '/navigation' },
+        { label: 'Progress', icon: 'spinner', route: '/progress' },
+        { label: 'Wizard', icon: 'hat-wizard', route: '/wizard' },
+        { label: 'Repo', icon: 'git-square', external: 'https://github.com/fieteboerner/vue-hoc-dummy' },
+      ],
+    };
+  },
 }
 </script>
 
@@ -46,7 +55,6 @@ body {
   left: 0;
   bottom: 0;
   width: 250px;
-  background-color: rgba(0, 0, 0, 0.05);
 
   .navigation-item {
     display: block;

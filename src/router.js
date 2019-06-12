@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Colors from './views/Colors.vue'
+import Navigation from './views/Navigation.vue'
 import Form from './views/Form.vue'
 import Progress from './views/Progress.vue'
 import Wizard from './views/Wizard.vue'
@@ -20,6 +21,11 @@ export default new Router({
       path: '/colors',
       name: 'colors',
       component: Colors
+    },
+    {
+      path: '/navigation',
+      name: 'navigation',
+      component: Navigation
     },
     {
       path: '/progress',
