@@ -1,5 +1,5 @@
 <template>
-  <NavigationTree :items="navigation" style="width: 250px" />
+  <NavigationTree :items="navigation" class="navigation-tree" />
 </template>
 
 <script>
@@ -33,3 +33,11 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.navigation-tree {
+  width: 250px;
+  height: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0,0.25);
+}
+</style>

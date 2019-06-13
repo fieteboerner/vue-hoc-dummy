@@ -48,30 +48,15 @@ body {
   color: #2c3e50;
   padding-left: 250px;
 }
+</style>
 
+<style lang="scss" scoped>
 .navigation {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   width: 250px;
-
-  .navigation-item {
-    display: block;
-    padding: 1em;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: black;
-    text-decoration: none;
-
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.075);
-    }
-
-    &.is-active {
-      border-left: 4px solid lightslategray;
-      background-color: rgba(0, 0, 0, 0.075);
-    }
-  }
 }
 
 .content {
