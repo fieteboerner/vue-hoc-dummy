@@ -25,13 +25,12 @@ export default {
 $color-item-background: #222d32;
 $color-item-text: #b8c7ce;
 
+$color-nested-item-background: #2c3b41;
+$color-nested-item-text: #8aa4af;
+
 $color-active-item-background: #1e282c;
 $color-active-item-border: #3c8dbc;
 $color-active-item-text: #ffffff;
-
-$color-navigation-item-label: #8aa4af;
-$color-navigation-item: #222d32;
-$color-navigation-nested-item: #2c3b41;
 
 .navigation-tree {
   background: $color-item-background;
@@ -71,7 +70,7 @@ $color-navigation-nested-item: #2c3b41;
     }
 
     &.is-nested {
-      background-color: $color-navigation-nested-item;
+      background-color: $color-nested-item-background;
       .list {
         max-height: 0;
         padding-left: 1em;
@@ -88,10 +87,11 @@ $color-navigation-nested-item: #2c3b41;
         .label {
           padding: 0.75em 1em;
           border-left: none;
-          background-color: $color-navigation-nested-item;
+          background-color: $color-nested-item-background;
+          color: $color-nested-item-text;
 
-          &.is-active {
-            color: white;
+          &:hover {
+            color: $color-active-item-text;
           }
         }
       }
