@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Colors from './views/Colors.vue'
 import Navigation from './views/Navigation.vue'
+import Transitions from './views/Transitions.vue'
 import Form from './views/Form.vue'
 import Progress from './views/Progress.vue'
 import Wizard from './views/Wizard.vue'
@@ -26,6 +27,11 @@ export default new Router({
       path: '/navigation',
       name: 'navigation',
       component: Navigation
+    },
+    {
+      path: '/transitions',
+      name: 'transitions',
+      component: Transitions
     },
     {
       path: '/progress',

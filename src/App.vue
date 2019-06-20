@@ -22,6 +22,7 @@ export default {
         { label: 'Colors', icon: 'palette', route: '/colors' },
         { label: 'Form', icon: 'envelope', route: '/form' },
         { label: 'Navigation', icon: 'sitemap', route: '/navigation' },
+        { label: 'Transitions', icon: 'angle-double-right', route: '/transitions' },
         { label: 'Progress', icon: 'spinner', route: '/progress' },
         { label: 'Wizard', icon: 'hat-wizard', route: '/wizard' },
         { label: 'Repo', icon: 'git-square', external: 'https://github.com/fieteboerner/vue-hoc-dummy' },
