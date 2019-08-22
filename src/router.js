@@ -5,6 +5,7 @@ import Colors from './views/Colors.vue'
 import Navigation from './views/Navigation.vue'
 import Transitions from './views/Transitions.vue'
 import Form from './views/Form.vue'
+import Svg from './views/Svg.vue'
 import Progress from './views/Progress.vue'
 import Wizard from './views/Wizard.vue'
 
@@ -42,6 +43,11 @@ export default new Router({
       path: '/form',
       name: 'form',
       component: Form
+    },
+    {
+      path: '/svg',
+      name: 'svg',
+      component: Svg
     },
     {
       path: '/wizard',
