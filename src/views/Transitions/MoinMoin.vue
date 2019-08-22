@@ -69,6 +69,10 @@ export default {
 <style lang="scss">
 .moin-moin-transition {
   animation: fill 0.5s ease forwards 3.5s;
+
+  path {
+    stroke-linecap: round;
+  }
 }
 @keyframes draw-line {
   to {
