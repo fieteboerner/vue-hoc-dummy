@@ -18,6 +18,12 @@ MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
       <InstallationWizardStep label="Step 2: DB-Connection">
         Bla
       </InstallationWizardStep>
+      <InstallationWizardStep label="Step 3: Redis">
+        Blubb
+      </InstallationWizardStep>
+      <InstallationWizardStep label="Step 4: Storage">
+        Foo Bar
+      </InstallationWizardStep>
     </InstallationWizard>
   </div>
 </template>
