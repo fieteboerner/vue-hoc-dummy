@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Colors from './views/Colors.vue'
+import Flip from './views/Flip.vue'
 import Navigation from './views/Navigation.vue'
 import Transitions from './views/Transitions.vue'
 import Form from './views/Form.vue'
@@ -23,6 +24,11 @@ export default new Router({
       path: '/colors',
       name: 'colors',
       component: Colors
+    },
+    {
+      path: '/flip',
+      name: 'flip',
+      component: Flip
     },
     {
       path: '/navigation',

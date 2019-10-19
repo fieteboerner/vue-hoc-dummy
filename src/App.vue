@@ -20,6 +20,7 @@ export default {
       navigation: [
         { label: 'Home', icon: 'home', exact: true, route: '/' },
         { label: 'Colors', icon: 'palette', route: '/colors' },
+        { label: 'Flip', icon: 'cube', route: '/flip' },
         { label: 'Form', icon: 'envelope', route: '/form' },
         { label: 'Navigation', icon: 'sitemap', route: '/navigation' },
         { label: 'Svg', icon: 'vector-square', route: '/svg' },
